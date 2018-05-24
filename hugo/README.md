@@ -56,10 +56,6 @@ python scripts/hugo_import_jekyll.py --target=_source/_change-log --output=hugo/
 # Usually you have alias=cp='cp -i'
 /bin/cp -rf  _source/_assets/img/* hugo/themes/okta/static/img
 /bin/cp -rf  _source/_assets/js/* hugo/themes/okta/static/js
-cd _source/_assets/css/
-scss okta.scss okta.css
-scss page-search.scss page-search.css
-cd ../../../
 /bin/cp -rf _source/_assets/css/*.css hugo/themes/okta/static/css/
 /bin/cp -rf _source/_assets/fonts/* hugo/themes/okta/static/fonts
 /bin/cp -rf _source/_data/* hugo/data/

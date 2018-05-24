@@ -7,8 +7,8 @@ description: "Secure a Spring microservices architecture with Spring Security an
 tags: [spring, spring boot, microservices, oauth 2.0, spring security, java]
 tweets:
 - "Did you know you can secure your @springboot microservices using OAuth and Okta? → "
-- "Feel the heat? A lot of the 🔥 in the #Java ecosystem is coming from Spring Boot. Learn how to 🔒 it down with @SpringSecurity, OAuth, and Okta! "
-- "Spring Boot Microservices + @SpringSecurity + @oauth_2 + @okta = 😀! "
+- "Feel the heat? A lot of the 🔥 in the #Java ecosystem is coming from Spring Boot. Learn how to 🔒 it down with @SpringSecurity, OAuth, and Okta!"
+- "Spring Boot Microservices + @SpringSecurity + @oauth_2 + @okta = 😀!"
 ---
 
 Building a microservices architecture with Spring Boot and Spring Cloud can allow your team to scale and develop software faster. It can add resilience and elasticity to your architecture that will enable it to fail gracefully and scale infinitely. All this is great, but you need continuous deployment and excellent security to ensure your system stays up-to-date, healthy, and safe for years to come.
@@ -43,6 +43,8 @@ If you don't have one yet, [create a forever-free Okta Developer account](https:
 
 Take note of the clientId and client secret values as you'll need these to configure your Spring Boot apps.
 
+You need to add a `roles` claim to your ID Token, so your groups in Okta are translated to Spring Security authorities. In your Okta developer console, navigate to **API** > **Authorization Servers**, click the **Authorization Servers** tab and edit the default one. Click the **Claims** tab and **Add Claim**. Name it "roles" and include it in the ID Token. Set the value type to "Groups" and set the filter to be a Regex of `.*`.
+
 ## Add Spring Security OAuth to the Edge Service Application
 
 The **edge-service** application handles the communication with the `beer-catalog-service`, so it's the best place to start integrating OAuth. In `edge-service/pom.xml`, add dependencies for Spring Security, its OAuth support, and its JWT support.
@@ -53,12 +55,9 @@ The **edge-service** application handles the communication with the `beer-catalo
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.springframework.security.oauth</groupId>
-    <artifactId>spring-security-oauth2</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-jwt</artifactId>
+    <groupId>org.springframework.security.oauth.boot</groupId>
+    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+    <version>2.0.1.RELEASE</version>
 </dependency>
 ```
 
@@ -72,7 +71,7 @@ zuul.routes.home.path=/home
 zuul.routes.home.url=http://localhost:8080
 ```
 
-Open `edge-service/src/main/java/com/example/EdgeServiceApplication.java` and add `@EnableOAuth2Sso` to enable authentication with OAuth.
+Open `edge-service/src/main/java/com/example/edgeservice/EdgeServiceApplication.java` and add `@EnableOAuth2Sso` to enable authentication with OAuth.
 
 ```java
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
@@ -82,7 +81,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 public class EdgeServiceApplication {
 ```
 
-Adding `@EnableOAuth2Sso` causes Spring Security to look for a number of properties. Add the following properties to `edge-service/src/main/resources/application.properties`. 
+Adding `@EnableOAuth2Sso` causes Spring Security to look for a number of properties. Add the following properties to `edge-service/src/main/resources/application.properties`.
 
 ```properties
 security.oauth2.client.client-id={yourClientId}
@@ -90,7 +89,6 @@ security.oauth2.client.client-secret={yourClientSecret}
 security.oauth2.client.access-token-uri=https://{yourOktaDomain}.com/oauth2/default/v1/token
 security.oauth2.client.user-authorization-uri=https://{yourOktaDomain}.com/oauth2/default/v1/authorize
 security.oauth2.client.scope=openid profile email
-security.oauth2.resource.filter-order=3
 security.oauth2.resource.user-info-uri=https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
 security.oauth2.resource.token-info-uri=https://{yourOktaDomain}.com/oauth2/default/v1/introspect
 security.oauth2.resource.prefer-token-info=false
@@ -135,12 +133,9 @@ In `beer-catalog-service/pom.xml`, add the same dependencies you added to the Ed
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.springframework.security.oauth</groupId>
-    <artifactId>spring-security-oauth2</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-jwt</artifactId>
+    <groupId>org.springframework.security.oauth.boot</groupId>
+    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+    <version>2.0.1.RELEASE</version>
 </dependency>
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -156,7 +151,6 @@ security.oauth2.client.client-secret={yourClientSecret}
 security.oauth2.client.access-token-uri=https://{yourOktaDomain}.com/oauth2/default/v1/token
 security.oauth2.client.user-authorization-uri=https://{yourOktaDomain}.com/oauth2/default/v1/authorize
 security.oauth2.client.scope=openid profile email
-security.oauth2.resource.filter-order=3
 security.oauth2.resource.user-info-uri=https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
 security.oauth2.resource.token-info-uri=https://{yourOktaDomain}.com/oauth2/default/v1/introspect
 security.oauth2.resource.prefer-token-info=false
@@ -265,7 +259,7 @@ Create a `home.html` template in `beer-catalog-service/src/main/resources/templa
 </html>
 ```
 
-Create a `ResourceServerConfig.java` class in the same package as `HomeController`. This class configures Spring Security so it secures all endpoints, except those accessed with an `Authorization` header.
+Create a `ResourceServerConfig.java` class in the same package as `HomeController`. This class configures Spring Security, so it secures all endpoints, except those accessed with an `Authorization` header.
 
 ```java
 package com.example.beercatalogservice;
@@ -393,7 +387,46 @@ Restart your Edge Server application, navigate to `http://localhost:8081/home` a
 
 <img src="/img/blog/microservices-spring-oauth/user-details.png" alt="Okta User Details" width="800" class="center-image">
 
-**NOTE:** I was unable to get the logout button to work due to a CSRF error. I tried adding `security.enable-csrf=false` to `application.properties` in the Edge Service app, but it didn't help. I sent an email to the Spring Security team asking if they had any advice.
+### Protecting Downstream Services in Spring Boot 2.0
+
+With Spring Boot 1.5.x, including Actuator as a dependency would trigger [Actuator Security](https://docs.spring.io/spring-boot/docs/2.0.2.RELEASE/reference/htmlsingle/#boot-features-security-actuator) and make it so the `http://localhost:8080` is protected. In Spring Boot 2.x, having a `WebSecurityConfigurerAdapter` causes Actuator security to back off. In the Beer Catalog Service app, the `ResourceServerConfig` causes this behavior.
+
+To secure Actuator endpoints and make it so you can't access `http://localhost:8080` directly, add the endpoints you want to expose in `beer-catalog-service/src/main/resources/application.properties`:
+
+```properties
+management.endpoints.web.exposure.include=beans,mappings
+```
+
+Then create a `SecurityConfig` class (in the same package as `ResourceServerConfig`).
+
+```java
+package com.example.beercatalogservice;
+
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+            .httpBasic();
+    }
+}
+```
+
+After making these changes, restart the `beer-catalog-service` and witness its protection.
+
+<img src="/img/blog/microservices-spring-secure/beer-catalog-protected.png" alt="Protected Beer Catalog Service" width="800" class="center-image">
+
+**NOTE:** I was unable to get the logout button to work due to a 403 error. I tried adding `csrf().requireCsrfProtectionMatcher(r -> false)` to the `ResourceServerConfig` in the Edge Service app, but it didn't help. I sent an email to the Spring Security team asking if they had any advice.
 
 ## Add Okta's Sign-In Widget to the Angular Client
 
@@ -713,6 +746,13 @@ This tutorial showed you how to add security to a previous tutorial, [Build a Mi
 
 If you're interested in learning about the future of Spring Security and OAuth 2.0, see [Next Generation OAuth 2.0 Support with Spring Security](https://spring.io/blog/2018/01/30/next-generation-oauth-2-0-support-with-spring-security) by our good friend [Joe Grandja](https://twitter.com/joe_grandja) of the Spring Security Team.
 
-Also, JHipster uses this same setup with its [OAuth support](http://www.jhipster.tech/security/#-oauth2-and-openid-connect). I hope to write a post soon that demonstrates how to create a microservices architecture with JHipster and OAuth. In the meantime, you can see how to [Use Ionic for JHipster to Create Mobile Apps with OIDC Authentication](/blog/2018/01/30/jhipster-ionic-with-oidc-authentication).
+Also, JHipster uses this same setup with its [OAuth support](http://www.jhipster.tech/security/#-oauth2-and-openid-connect). If you're interested in using Okta with JHipster, I encourage you to check out the following blog posts:
+
+* [Develop a Microservices Architecture with OAuth 2.0 and JHipster](/blog/2018/03/01/develop-microservices-jhipster-oauth)
+* [Use Ionic for JHipster to Create Mobile Apps with OIDC Authentication](/blog/2018/01/30/jhipster-ionic-with-oidc-authentication)
 
 Learn more about Okta and its APIs at [developer.okta.com/product](https://developer.okta.com/product/). If you have questions about this tutorial, please leave a comment below or hit me up on Twitter [@mraible](https://twitter.com/mraible).
+
+**Changelog:**
+
+* May 11, 2018: Updated to use Spring Boot 2.0 and Okta Sign-In Widget 2.0.8. See the example app changes in [spring-boot-microservices-example#17](https://github.com/oktadeveloper/spring-boot-microservices-example/pull/17); changes to this post can be viewed in [okta.github.io#2049](https://github.com/okta/okta.github.io/pull/2049).

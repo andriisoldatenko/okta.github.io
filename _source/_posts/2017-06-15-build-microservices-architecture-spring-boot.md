@@ -122,6 +122,12 @@ Enter `eureka-service` as an artifact name and select `Eureka Server` as a depen
 
 Click the **Generate Project** button and expand `eureka-service.zip` into the `spring-boot-microservices-example` directory.
 
+> **TIP:** You could also create your project using start.spring.io's API. The following [HTTPie](https://httpie.org/) command will create the same app as the steps above:
+> ```
+> http https://start.spring.io/starter.zip artifactId==eureka-service \
+>    name==eureka-service dependencies==cloud-eureka-server baseDir==eureka-service | tar -xzvf -
+> ```
+
 Modify `eureka-service/src/main/resources/application.properties` to add a port number and disable registration.
 
 ```
@@ -129,7 +135,7 @@ server.port=8761
 eureka.client.register-with-eureka=false
 ```
 
-Open `eureka-service/src/main/java/com/example/EurekaServiceApplication.java` and add `@EnableEurekaServer` above `@SpringBootApplication`.
+Open `eureka-service/src/main/java/com/example/eurekaservice/EurekaServiceApplication.java` and add `@EnableEurekaServer` above `@SpringBootApplication`.
 
 ```java
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
@@ -175,6 +181,13 @@ artifact name and add the following dependencies:
 Click the **Generate Project** button and expand `beer-catalog-service.zip` into `spring-boot-microservices-example` and 
 open the project in your favorite IDE. I recommend [IntelliJ IDEA](https://www.jetbrains.com/idea/) because it's great for 
 Java and web development.
+
+> **TIP:** To create this same project using start.spring.io's API, run the following:
+> ```
+> http https://start.spring.io/starter.zip artifactId==beer-catalog-service \
+>   name==beer-catalog-service dependencies==actuator,cloud-eureka,data-jpa,h2,data-rest,web,devtools,lombok \
+>   baseDir==beer-catalog-service | tar -xzvf -
+> ```
 
 Create a `Beer` entity, a `JpaRepository` for it, and a `CommandLineRunner` to populate the database with default data. 
 You can add this code to `BeerCatalogServiceApplication.java`, or create separate files for each class. The code below 
@@ -254,7 +267,7 @@ Start the beer-catalog-service with Maven (`mvn spring-boot:run`) or your IDE.
 At this point, you should be able to use [HTTPie](https://httpie.org/) to see the list of beers from the catalog service.
 
 ```bash
-http localhost:8080/beers
+http :8080/beers
 ```
 
 {% img blog/microservices-spring-boot/httpie-beers.png alt:"HTTPie Beers" width:"800" %}{: .center-image }
@@ -321,7 +334,14 @@ Navigate to [start.spring.io](https://start.spring.io) and create an `edge-servi
 {% img blog/microservices-spring-boot/edge-service.png alt:"Edge Service" width:"800" %}{: .center-image }
 
 Click the **Generate Project** button and expand `edge-service.zip` into `spring-boot-microservices-example` and open 
-the project in your favorite IDE. 
+the project in your favorite IDE.
+
+> **TIP:** To create this same project using start.spring.io's API, run the following:
+> ```
+> http https://start.spring.io/starter.zip artifactId==edge-service \
+>   name==edge-service  dependencies==cloud-eureka,cloud-feign,cloud-zuul,data-rest,web,cloud-hystrix,lombok \
+>   baseDir==edge-service | tar -xzvf -
+> ```
 
 Since the `beer-catalog-service` is running on port 8080, you'll need to configure this application to run on a different 
 port. Modify `edge-service/src/main/resources/application.properties` to set the port to 8081 and set an application name.
@@ -440,12 +460,11 @@ Start the `edge-service` application with Maven or your IDE and verify it regist
 You should be able to invoke the `/good-beers` endpoint as well.
 
 ```bash
-$ http localhost:8081/good-beers
+$ http :8081/good-beers
 HTTP/1.1 200
 Content-Type: application/json;charset=UTF-8
-Date: Wed, 07 Feb 2018 16:50:51 GMT
+Date: Fri, 11 May 2018 17:28:55 GMT
 Transfer-Encoding: chunked
-X-Application-Context: edge-service:8081
 ```
 ```json
 [
@@ -467,22 +486,20 @@ X-Application-Context: edge-service:8081
 This is cool, but if you shut down the `beer-catalog-service` application, you'll get a 500 internal server error.
 
 ```bash
-$ http localhost:8081/good-beers
+$ http :8081/good-beers
 HTTP/1.1 500
 Connection: close
 Content-Type: application/json;charset=UTF-8
-Date: Wed, 07 Feb 2018 16:51:38 GMT
+Date: Fri, 11 May 2018 17:35:39 GMT
 Transfer-Encoding: chunked
-X-Application-Context: edge-service:8081
 ```
 ```json
 {
     "error": "Internal Server Error",
-    "exception": "feign.RetryableException",
     "message": "connect timed out executing GET http://beer-catalog-service/beers",
     "path": "/good-beers",
     "status": 500,
-    "timestamp": 1518022298072
+    "timestamp": "2018-05-11T17:35:39.201+0000"
 }
 ```
 
@@ -503,12 +520,11 @@ public Collection<Beer> goodBeers() {
 Restart the `edge-service` and you should see an empty list returned.
 
 ```bash
-$ http localhost:8081/good-beers
+$ http :8081/good-beers
 HTTP/1.1 200
 Content-Type: application/json;charset=UTF-8
-Date: Wed, 07 Feb 2018 16:52:59 GMT
+Date: Fri, 11 May 2018 17:38:18 GMT
 Transfer-Encoding: chunked
-X-Application-Context: edge-service:8081
 ```
 ```json
 []
@@ -637,5 +653,6 @@ or [create an issue on GitHub](https://github.com/oktadeveloper/spring-boot-micr
 
 **Changelog:**
 
+* May 11, 2018: Updated to use Spring Boot 2.0. See the example app changes in [spring-boot-microservices-example#18](https://github.com/oktadeveloper/spring-boot-microservices-example/pull/18); changes to this post can be viewed in [okta.github.io#2046](https://github.com/okta/okta.github.io/pull/2046).
 * Feb 8, 2018: Updated to use use Spring Boot 1.5.10, Angular CLI 1.6.7, and Angular 5.2.0. See the code changes in the [example app on GitHub](https://github.com/oktadeveloper/spring-boot-microservices-example/pull/10). Changes to this article can be viewed [in this pull request](https://github.com/okta/okta.github.io/pull/1739).
 * Jan 17, 2018: Updated to use latest client from [Build Your First Progressive Web Application with Angular and Spring Boot](/blog/2017/05/09/progressive-web-applications-with-angular-and-spring-boot). See the code changes in the [example app on GitHub](https://github.com/oktadeveloper/spring-boot-microservices-example/pull/6). Changes to this article can be viewed [in this pull request](https://github.com/okta/okta.github.io/pull/1637).

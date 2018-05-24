@@ -5,6 +5,8 @@ exampleDescription: Java Implicit Example
 
 ## Okta Java Quickstart
 
+Now that your clients can get tokens, let's validate those tokens on your server.
+
 ### Include the dependency
 
 For Apache Maven:

@@ -19,14 +19,14 @@ At the end of the Angular instructions you can choose your server type to learn 
 ## Prerequisites
 
 * If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
-* If you don't have an Angular app, or are new to Angular, please start with the [Angular Quickstart](https://angular.io/guide/quickstart) guide. It will walk you through the creation of an Angular app, creating routes, and other application development essentials.
+* If you don't have an Angular app, or are new to Angular, please start with [Angular's documentation](https://angular.io/guide/quickstart). It will walk you through the creation of an Angular app, creating routes, and other application development essentials.
 
 ## Add an OpenID Connect Client in Okta
 
-In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta Org already has a default authorization server, so you just need to create an OIDC client that will use it.
+In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta org already has a default authorization server, so you just need to create an OIDC client that will use it.
 
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from the [Angular Quickstart](https://angular.io/guide/quickstart), your `port` will be `4200`:
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from [Angular's documentation](https://angular.io/guide/quickstart), your `port` will be `4200`:
 
 | Setting             | Value                                          |
 | ------------------- | ---------------------------------------------- |
@@ -46,7 +46,7 @@ These values will be used in your Angular application to setup the OpenID Connec
 
 ## Install the Okta Angular SDK
 
-You will need to use the [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular) library to sign in the user by redirecting to the authorization endpoint on your Okta Org. You can install it via npm:
+You will need to use the [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular) library to sign in the user by redirecting to the authorization endpoint on your Okta org. You can install it via npm:
 
 ```bash
 npm install @okta/okta-angular --save
@@ -54,7 +54,7 @@ npm install @okta/okta-angular --save
 
 ### Configuration
 
-You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta Org URL, which you can see on the home page of the Okta Developer console.
+You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console.
 
 In your application's `module.ts` file, import the following objects and create a configuration object:
 

@@ -5,6 +5,8 @@ exampleDescription: Spring Auth Code Example
 
 ## Okta Java/Spring Quickstart
 
+Now that your users can sign in, let's add authentication to your server.
+
 ### Include the dependencies
 
 For Apache Maven:

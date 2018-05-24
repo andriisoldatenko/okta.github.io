@@ -17,15 +17,15 @@ At the end of the React Native instructions you can choose your server type to l
 ## Prerequisites
 
 * If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
-* If you don't have a React Native app, or are new to React Native, please continue with the [React Native Quickstart](https://github.com/react-community/create-react-native-app#getting-started) guide. It will walk you through the creation of a React Native app and other application development essentials.
+* If you don't have a React Native app, or are new to React Native, please start with [React Native's documentation](https://github.com/react-community/create-react-native-app#getting-started). It will walk you through the creation of a React Native app and other application development essentials.
 * If you are developing with an Android device emulator, make sure to check out the [React Native - Android Development](https://facebook.github.io/react-native/docs/getting-started.html#android-development-environment) setup instructions.
 
 ## Add an OpenID Connect Client in Okta
 
-In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta Org already has a default authorization server, so you just need to create an OIDC client that will use it.
+In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta org already has a default authorization server, so you just need to create an OIDC client that will use it.
 
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
-* Choose **Native app** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from the [React Native Quickstart](https://github.com/react-community/create-react-native-app#getting-started), your `port` will be `19000`:
+* Choose **Native app** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from [React Native's documentation](https://github.com/react-community/create-react-native-app#getting-started), your `port` will be `19000`:
 
 | Setting             | Value                                         |
 | ------------------- | --------------------------------------------  |
@@ -45,7 +45,7 @@ These values will be used in your React Native application to setup the OpenID C
 
 ## Install the Okta React Native SDK
 
-You will need to use the [Okta React Native SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native) library to sign in the user by redirecting to the authorization endpoint on your Okta Org. You can install it via npm:
+You will need to use the [Okta React Native SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native) library to sign in the user by redirecting to the authorization endpoint on your Okta org. You can install it via npm:
 
 ```bash
 npm install --save @okta/okta-react-native
@@ -53,7 +53,7 @@ npm install --save @okta/okta-react-native
 
 ### Configuration
 
-You will need the values from the OIDC client that you created in the previous step to instantiate the client. You will also need to know your Okta Org URL, which you can see on the home page of the Okta Developer console.
+You will need the values from the OIDC client that you created in the previous step to instantiate the client. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console.
 
 Assuming you're using an app created with `create-react-native-app`, modify your `app.json` to add a `scheme`:
 

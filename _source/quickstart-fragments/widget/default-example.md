@@ -17,7 +17,7 @@ At the end of this section can choose your server type to learn more about post-
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
-> Note: The rest of these instructions assume you are using the new Developer Dashboard.  If you already have an Okta Org, you can find the new Developer Dashboard by using the drop-down menu in the upper-left of the Okta user interface.
+> Note: The rest of these instructions assume you are using the developer console. If you already have an Okta org, you can toggle to the developer console by using the drop-down menu in the upper-left of the Okta administrator UI.
 
 ## Add and Configure an OpenID Connect Client
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.

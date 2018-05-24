@@ -348,10 +348,10 @@ I hope you’ve enjoyed this quick tour of Kotlin and saw how its concise syntax
 Install Angular CLI using [Facebook’s Yarn](https://yarnpkg.com).
 
 ```bash
-yarn add global @angular/cli
+yarn add global @angular/cli@1.5.5
 ```
 
-Or using npm (`npm install -g @angular/cli`).
+Or using npm (`npm install -g @angular/cli@1.5.5`).
 
 Then create a new project using its `ng` command.
 
@@ -740,7 +740,7 @@ After signing in, you should see the notes list, but no records in it.
 
 {% img blog/kotlin-secure-notes/notes-list-plain.png alt:"Empty Notes List" %}{: .center-image }
 
-To make sure I could add, edit, and delete notes, I wrote a bunch of TypeScript and HTML. I also added [Angular Material](https://material.angular.io) using `yarn add @angular/material @angular/cdk`. 
+To make sure I could add, edit, and delete notes, I wrote a bunch of TypeScript and HTML. I also added [Angular Material](https://material.angular.io) using `yarn add @angular/material@5.0.0 @angular/cdk@5.0.0`.
 
 You can see the results in [the GitHub repository for this article](https://github.com/oktadeveloper/okta-kotlin-typescript-notes-example). In particular, the code in the following files:
 

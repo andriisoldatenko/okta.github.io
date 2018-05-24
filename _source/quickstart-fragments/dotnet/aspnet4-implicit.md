@@ -5,6 +5,8 @@ exampleDescription: ASP.NET 4.x Web API implicit example
 
 ## Okta ASP.NET 4.x Web API Quickstart
 
+Now that your clients can get tokens, let's validate those tokens on your server.
+
 ### Create a new Web API project
 
 If you don't already have a Web API project, create a new ASP.NET (.NET Framework) project and choose the Web API template. Choose **No Authentication**.

@@ -21,7 +21,7 @@
 	</header>
 
 	<div class="BlogPost-content">
-		<p>{{ .Content | plainify | truncate 420 }}</p>
+		<p>{{ .Content | plainify | safeHTML | truncate 420 }}</p>
 		<p><a class="BlogPost-more" href="{{ .URL }}">Read more</a></p>
 	</div>
 </article>

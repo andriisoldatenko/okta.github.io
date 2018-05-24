@@ -69,7 +69,7 @@ Please note the following:
 
 > Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
 
-> If your application cannot retrieve keys dynamically, the administrator can disable the automatic key rotation in the administration UI, [generate a key credential](/docs/api/resources/apps#generate-new-application-key-credential) and [update the application](/docs/api/resources/apps#update-key-credential-for-application) to use it for signing.
+> If your application cannot retrieve keys dynamically, the administrator can disable the automatic key rotation in the administrator UI, [generate a key credential](/docs/api/resources/apps#generate-new-application-key-credential) and [update the application](/docs/api/resources/apps#update-key-credential-for-application) to use it for signing.
 
 ### Verify the Claims
 
@@ -91,6 +91,7 @@ This incurs a network request which is slower to do verification, but can be use
 
 The Okta JWT Verifier is available for the following languages:
 
+- [Golang](https://github.com/okta/okta-jwt-verifier-golang)
 - [Java](https://github.com/okta/okta-jwt-verifier-java)
 - [Node.js](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier)
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)

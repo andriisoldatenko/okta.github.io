@@ -473,9 +473,9 @@ Thanks!
 
 Below are screenshots to prove everything worked after I got my timeouts increased. 😊
 
-| {% img blog/microservices-jhipster-oauth/heroku-welcome.png alt:"Gateway on Heroku" width:"400" %} | {% img blog/microservices-jhipster-oauth/heroku-gateway-routes.png alt:"Heroku Gateway Routes" width:"400" %} |
+| <img src="/img/blog/microservices-jhipster-oauth/heroku-welcome.png" alt="Gateway on Heroku" width="400"> | <img src="/img/blog/microservices-jhipster-oauth/heroku-gateway-routes.png" alt="Heroku Gateway Routes" width="400"> |
 
-| {% img blog/microservices-jhipster-oauth/heroku-blog.png alt:"Blog on Heroku" width:"400" %} | {% img blog/microservices-jhipster-oauth/heroku-store.png alt:"Store on Heroku" width:"400" %} |
+| <img src="/img/blog/microservices-jhipster-oauth/heroku-blog.png" alt="Blog on Heroku" width="400"> | <img src="/img/blog/microservices-jhipster-oauth/heroku-store.png" alt="Store on Heroku" width="400"> |
 
 You can find the source code for this example at https://github.com/oktadeveloper/okta-jhipster-microservices-oauth-example.
 

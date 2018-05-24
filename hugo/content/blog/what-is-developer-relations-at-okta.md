@@ -51,7 +51,7 @@ That's me!  I'm **[Matt Raible](https://twitter.com/mraible)** and I started as 
 
 We have a Developer Relations team at Okta because we recognize that the decision maker for software has changed. In the past, companies that sell software could sell it via marketing, using a top-down approach that targeted CEOs or CTOs. Some companies still sell software this way, but the market has changed and developers have become the dominate decision makers. Especially when it comes to choosing software that their applications interact with. Need proof? See [Stephen O'Grady's](http://redmonk.com/sogrady/) [The New Kingmakers](https://thenewkingmakers.com/). 
 
-> {% img blog/devrel-at-okta/newkingmakers.jpg alt:"The New Kingmakers" width:"150" class:"pull-right m-x-sm" %}
+> <img src="/img/blog/devrel-at-okta/newkingmakers.jpg" alt="The New Kingmakers" width="150" class="pull-right m-x-sm">
 > While the actual number might be up for debate, the importance of technical talent is not. The most successful companies today 
 > are those that understand the strategic role that developers will play in their success or failure. Not just successful 
 > technology companies – virtually every company today needs a developer strategy. There's a reason that ESPN and Sears have 
@@ -134,6 +134,6 @@ And more than anything, we're **tracking the metrics that matter**. This way, we
 
 Being a part of the DevRel Team at Okta has been a great experience for me. It's fun to be a part of something that's just beginning, with a team of outstanding individuals. If you're a developer using Okta, and you have feedback to share, please contact us at developers@okta.com. DevRel at Okta is a fun ride, and we're just getting started. 
 
-[{% img blog/devrel-at-okta/okta-api.png alt:"Okta API" %}](https://developer.okta.com)
+[<img src="/img/blog/devrel-at-okta/okta-api.png" alt="Okta API">](https://developer.okta.com)
 
 If you'd like to talk to me about DevRel at Okta, or in your organization, please hit me up on Twitter [@mraible](https://twitter.com/mraible) or directly via email to matt.raible@okta.com.

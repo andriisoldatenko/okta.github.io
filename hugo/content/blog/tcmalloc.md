@@ -14,7 +14,7 @@ Underlying each of the challenges we faced in that period was the huge amount of
 
 As problems go, growing pains are good problems to have. But they usually come at a cost: the increased traffic caused significant CPU contention, as shown in the following image.
 
- {% img Pre-buffer_adjustment.png style:"width:55%" alt:"Before tuning the database" %}
+ <img src="/img/Pre-buffer_adjustment.png" style="width=55%" alt="Before tuning the database">
 
 Those red and yellow spikes in late October, 2014 seized our attention and spurred an aggressive response from Okta’s site operations team. The team took immediate action to prevent this situation from getting worse and potentially causing a issue with our site.
 
@@ -76,7 +76,7 @@ We discovered very quickly that the culprit this time was a *khugepaged* enabled
 
 Which is why THP is so wrong for our platform. By late 2014 we were using 95% of the RAM and 58% of the 32 CPU cores in our servers . In order to store all of those tiny transaction IDs, we were rewriting memory so rapidly that THP’s efforts to move pages around couldn’t keep up. Clearly, standard 4kb blocks were much more efficient for us than the larger page size that THP was “helping” us with. So we turned THP off. The following image tells the story.
 
- {% img TCMalloc.png style:"width:40%" alt:"TCMalloc" %}
+ <img src="/img/TCMalloc.png" style="width=40%" alt="TCMalloc">
 
 **Note:** Flat areas in the graph showing no CPU usage indicate periods when we were running on a secondary server.
 

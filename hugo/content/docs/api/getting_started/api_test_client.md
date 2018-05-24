@@ -30,10 +30,10 @@ If you need organizations with guaranteed SLAs or enterprise features, [let us k
 1. [Create an API token](getting_a_token){:target="_blank"} for your org.
 1. [Install the Postman app](https://www.getpostman.com/apps){:target="_blank"}.
 1. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
-    {% img import_enviro.png alt:"Importing the Okta Example Environment" %}
+    <img src="/img/import_enviro.png" alt="Importing the Okta Example Environment">
 
 1. Once it's imported, make sure the `example.oktapreview.com` environment is selected.
-    {% img postman_example_start.png alt:"Postman app with collections" %}
+    <img src="/img/postman_example_start.png" alt="Postman app with collections">
 
 1. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
     * Rename your environment to something you'll recognize. For example, `My Org`.
@@ -63,7 +63,7 @@ To make sure everything works, send a request to list all the users in your org:
 
 1. Select the **Collections** tab in Postman and open the **Users (Okta API)** collection. Open the **List Users** folder, and select **(GET) List Users**. This loads the List Users request into Postman, ready to send.
 1. Click **Send**. The result pane automatically displays the results of your request:
-    {% img postman_response.png alt:"GET List Users" %}
+    <img src="/img/postman_response.png" alt="GET List Users">
 
 If you receive an error, it's likely that one of the values in the environment isn't set correctly. Check the values and try again.
 
@@ -85,7 +85,8 @@ Import any Okta API collection for Postman from the following list:
 | Factors                                   |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba){:target="_blank"} |
 | Groups                                    |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb414f9594ed93672a0){:target="_blank"} |
 | Identity Providers (IdP)                  |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8){:target="_blank"} |
-| Logs                                      |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cfb0dd661a5432a77c6){:target="_blank"} |
+ Linked Objects                   | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea){:target="_blank"} |
+| Logs                                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cfb0dd661a5432a77c6){:target="_blank"} |
 | Administrator Roles                               |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04f5ec85685ac6f2827e){:target="_blank"} |
 | Schemas                                   |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/443242e60287fb4b8d6d){:target="_blank"} |
 | Users                                     |   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b){:target="_blank"} |
@@ -105,7 +106,7 @@ Replace URL and body variables with the IDs of the resources you wish to specify
 To find an ID:
 
 1. List a resource collection with a search or filter. For example, list the users in your org, as you did in the previous section.
-    {% img postman_response2.png alt:"List Users Response" %}
+    <img src="/img/postman_response2.png" alt="List Users Response">
 
 2. Copy the `id` of the resource, in this example the `id` for Tony Stark, in your next request.
 

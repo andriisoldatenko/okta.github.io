@@ -265,7 +265,7 @@ test worked when you see a screen that looks like the one below:
 
     -   Click the button for the application you created earlier
         "Configuring Okta to work with SimpleSAMLphp" section
-        above: {% img simplesamlphp-example-okta-chiclet.png alt:"SimpleSAMLphp Example" %}
+        above: <img src="/img/simplesamlphp-example-okta-chiclet.png" alt="SimpleSAMLphp Example">
 
 You will know that your testing was successful if are able to get to the "Logged in"
 page pictured above using both "SP initated" and "IdP initated" login.

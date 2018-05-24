@@ -23,12 +23,27 @@ log = logging.getLogger(__name__)
 JEKYLL_BLOG_FILENAME = re.compile(r'(\d+-\d+-\d+)-(.+)\..*')
 
 # {% img blog/ultimate-pwa-guide/hnpwa.png alt:"Hacker News PWA" width:"800" %}{: .center-image }
-IMG_TAG = re.compile(r'{% img ([\w/\-.]+) (.*) %}(.*)')
+IMG_TAG = re.compile(r'(.*|.?){% img ([\w\d/\-.]+) (.*) %}(.*|.?)')
 API_OPERATION_TAG = re.compile(r'{% api_operation (\w+) ([\w/*:.{}+$#?=]+) %}')
 API_LIFECYCLE_TAG = re.compile(r'{% api_lifecycle (\w+) %}')
 API_CORS = re.compile(r'{% api_cors %}')
 RAW_TAG = re.compile(r'{% raw %}')
 END_RAW_TAG = re.compile(r'{% endraw %}')
+
+def process_line(line):
+    m = re.search(IMG_TAG, line)
+    center_img = ''
+    if m.group(4) and m.group(4) == '{: .center-image }':
+        center_img = ' class="center-image"'
+    else:
+        center_img = m.group(4)
+    new_line = m.group(1) + '<img src="/img/' +  m.group(2) + \
+               '" ' + m.group(3).replace(':', '=')
+    if center_img == ' class="center-image"':
+        new_line = new_line + center_img + '>'
+    else:
+        new_line = new_line + '>' + center_img
+    return new_line
 
 def main():
     parser = argparse.ArgumentParser()
@@ -67,14 +82,11 @@ def main():
                     data = re.sub(END_RAW_TAG, r'', data)
                     new_lines = []
                     for line in data.splitlines():
-                        if line.startswith('{% img'):
-                            m = re.match(IMG_TAG, line)
-                            center_img = ''
-                            if m.group(3):
-                                center_img = ' class="center-image"'
-                            new_line = '<img src="/img/{}" {}{}>'.format(
-                                m.group(1), m.group(2).replace(':', '='),
-                            center_img)
+                        if '{% img' in line:
+                            img_count = line.count('{% img')
+                            new_line = line
+                            for _ in range(img_count):
+                                new_line = process_line(new_line)
                             new_lines.append(new_line)
                         else:
                             new_lines.append(line)

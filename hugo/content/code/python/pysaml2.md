@@ -183,7 +183,7 @@ test worked when you see a screen that looks like the one below:
 
     -   Click the button for the application you created earlier
         "Configuring Okta to work with {{ page.saml_library }}" section
-        above: {% img pysaml2-example-okta-chiclet.png alt:"{{ page.chiclet_name }}" %}
+        above: <img src="/img/pysaml2-example-okta-chiclet.png" alt="{{ page.chiclet_name }}">
 
 If you can to get to the "Logged in" page using both of the
 methods above, the test are successful.

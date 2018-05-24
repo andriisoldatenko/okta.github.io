@@ -26,7 +26,7 @@ OpenID Connect extends OAuth 2.0:
 * Provides access to the [Okta Authorization Server](#authorization-servers).
 * Provides a standard set of scopes and claims for identities including profile, email, address, and phone.
 
-{% img openID_overview.png alt:"OpenID Architecture Diagram" %}
+<img src="/img/openID_overview.png" alt="OpenID Architecture Diagram">
 
 Okta is the identity provider responsible for verifying the identity of users and applications that exist in an organization’s directory,
 and issuing ID Tokens upon successful authentication of those users and applications.

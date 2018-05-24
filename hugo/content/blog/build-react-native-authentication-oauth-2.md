@@ -63,7 +63,7 @@ Logs from serving your app will appear here. Press Ctrl+C at any time to stop.
 
 If you're on a Mac, press **i** to open iOS emulator. You will be prompted to install/open with Expo, then presented with the rendered `App.js`.
 
-| {% img blog/react-native-app-auth/open-in-expo.png alt:"Open in Expo" width:"400" %} | {% img blog/react-native-app-auth/default-page.png alt:"Rendered App.js" width:"400" %} |
+| <img src="/img/blog/react-native-app-auth/open-in-expo.png" alt="Open in Expo" width="400"> | <img src="/img/blog/react-native-app-auth/default-page.png" alt="Rendered App.js" width="400"> |
 
 If you're on Windows or Linux, I'd suggest trying the Android emulator or your Android device (if you have one). If it doesn't work, don't worry, I'll show you how to make that work later on.
 
@@ -370,11 +370,11 @@ Run your app with `npm run ios`.
 
 You should see a screen that says "Hello, stranger." Click on **Authorize**, and you'll be prompted to continue or cancel.
 
-| {% img blog/react-native-app-auth/hello.png alt:"Hello, stranger" width:"400" %} | {% img blog/react-native-app-auth/continue.png alt:"Cancel or Continue" width:"400" %} |
+| <img src="/img/blog/react-native-app-auth/hello.png" alt="Hello, stranger" width="400"> | <img src="/img/blog/react-native-app-auth/continue.png" alt="Cancel or Continue" width="400"> |
 
 Click **Continue** and you should see an Okta sign-in form. Enter your credentials, and you'll be redirected back to the application.
 
-| {% img blog/react-native-app-auth/okta-login.png alt:"Okta Sign-In" width:"400" %} | {% img blog/react-native-app-auth/access-token.png alt:"Access Token Info" width:"400" %} |
+| <img src="/img/blog/react-native-app-auth/okta-login.png" alt="Okta Sign-In" width="400"> | <img src="/img/blog/react-native-app-auth/access-token.png" alt="Access Token Info" width="400"> |
 
 You can click **Refresh** to watch the values for the access token and expire date change.
 
@@ -472,7 +472,7 @@ To create a new AVD, navigate to **Tools** > **Android** > **AVD Manager**. Crea
 
 Run `npm run android` again. You should see a welcome screen and be able to authorize successfully.
 
-| {% img blog/react-native-app-auth/android-hello.png alt:"Hello, stranger" width:"280" %} | {% img blog/react-native-app-auth/android-sign-in.png alt:"Okta Sign-In" width:"280" %} | {% img blog/react-native-app-auth/android-access-token.png alt:"Access Token on Android" width:"280" %} |
+| <img src="/img/blog/react-native-app-auth/android-hello.png" alt="Hello, stranger" width="280"> | <img src="/img/blog/react-native-app-auth/android-sign-in.png" alt="Okta Sign-In" width="280"> | <img src="/img/blog/react-native-app-auth/android-access-token.png" alt="Access Token on Android" width="280"> |
 
 **TIP:** To fix `Configuration 'compile' in project ':app' is deprecated. Use 'implementation' instead.`, change `compile` under `dependencies` to `implementation`. More information can be found in [Migrate to Android Plugin for Gradle 3.0.0](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html).
 
@@ -636,7 +636,7 @@ Modify the row where you display the ID token to show the JSON from the API.
 
 In iOS Simulator, press **Command + R** to reload everything and you should see the JSON when you click on the **Good Beers** button. You can reload in Android using **Command + M** (on Mac, **CTRL + M** on other operating systems).
 
-| {% img blog/react-native-app-auth/good-beers-ios.png alt:"Good Beers on iOS" width:"400" %} | {% img blog/react-native-app-auth/good-beers-android.png alt:"Good Beers on Android" width:"350" %} |
+| <img src="/img/blog/react-native-app-auth/good-beers-ios.png" alt="Good Beers on iOS" width="400"> | <img src="/img/blog/react-native-app-auth/good-beers-android.png" alt="Good Beers on Android" width="350"> |
 
 **NOTE:** There is an [open issue in react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth/issues/70) about revoke not working with Okta because an `Authorization` header is not sent.
 

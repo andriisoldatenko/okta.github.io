@@ -15,13 +15,13 @@ redirect_from: "/docs/getting_started/getting_a_token.html"
     Developer Edition organization [at this link](https://developer.okta.com/signup/){:target="_blank"}.
 
 2.  Click on the blue **Admin** button.
-    {% img okta-admin-ui-button-admin.png alt:"Admin" %}
+    <img src="/img/okta-admin-ui-button-admin.png" alt="Admin">
 
 3.  Click on **Tokens** in the API menu.
-	{% img okta-admin-api-token-dev.png alt:"API" %}
+	<img src="/img/okta-admin-api-token-dev.png" alt="API">
 
 4.  Click on the **Create token** button.
-	{% img okta-create-api-token-button.png alt:"Create Token" %}
+	<img src="/img/okta-create-api-token-button.png" alt="Create Token">
 
 5.  Name your token and click **Create token**.
 

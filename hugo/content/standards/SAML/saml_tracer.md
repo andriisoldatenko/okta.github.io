@@ -28,10 +28,10 @@ To create a SAML request for an SP-initiated flow and inspect the request and re
 2. Look at the SAML tracer window and see the SAML request sent from your application to Okta.
 3. Okta returns a SAML Response.
 
-{% img saml-request-sp-flow.png "sample sp request in tracer" alt:"SAML Request SP Flow" %}
+<img src="/img/saml-request-sp-flow.png" "sample sp request in tracer" alt="SAML Request SP Flow">
 Figure 1: SP-Initiated Request in SAML tracer
 
-{% img saml-response-sp-flow.png "sample sp response in tracer" alt:"SAML Response SP Flow" %}
+<img src="/img/saml-response-sp-flow.png" "sample sp response in tracer" alt="SAML Response SP Flow">
 Figure 2: SP-Initiated Response in SAML tracer
 
 ## IDP Initiated Flow
@@ -44,7 +44,7 @@ To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer
 
 You can also start an IdP flow by selecting the App Embed link in a browser (**SAML App** > **General** > **App Embed Link**).
 
-{% img idp-flow-saml-trace.png alt:"SAML Response IdP" %}
+<img src="/img/idp-flow-saml-trace.png" alt="SAML Response IdP">
 Figure 3: IdP-Initiated Response in SAML tracer
 
 When you receive a SAML request and response successfully from Okta, it indicates that your configuration is successfully working with Okta.
@@ -73,7 +73,7 @@ the application can read attributes passed from Okta after a user logs in.
 
 ## Example SAML Response
 
-SAML responses are signed. This example contains profile attributes of the person who requested access to the app, as set in the General tab of the Okta Admin user interface.
+SAML responses are signed. This example contains profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
 
 ~~~xml
 <saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
@@ -234,4 +234,4 @@ RKvwyyTfqfq9pgSmB9xNVJIeVZbbZGTlNGqJti24E0AiIPggtxg5NJ+HHnEQ5RxdSsR4fbMz9i0K
 </saml2p:Response>
 ~~~
 
-SAML responses are signed, and contain the profile attributes of the person who requested access to the app, as set in the General tab of the Okta Admin user interface.
+SAML responses are signed, and contain the profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.

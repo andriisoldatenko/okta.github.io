@@ -729,7 +729,7 @@ start all the components of your application with a single command.
     * Set up monitoring: `JHipster Console with ELK/Zipkin`
     * The admin password for the JHipster Registry: `admin`
     
-    {% img blog/microservices-jhipster/generate-docker.png alt:"Generating Docker" width:"800" %}
+    <img src="/img/blog/microservices-jhipster/generate-docker.png" alt="Generating Docker" width="800">
     
 4. Run `docker-compose up` to run all your services and see the logs in the same window. Add `-d` if you want to run 
 them as a daemon
@@ -756,12 +756,12 @@ these look like.
 
 <table>
 <tr>
-<td>{% img blog/microservices-jhipster/dashboard-jvm.png alt:"JVM Dashboard" width:"400" %}</td>
-<td>{% img blog/microservices-jhipster/dashboard-metrics.png alt:"Metrics Dashboard" width:"400" %}</td>
+<td><img src="/img/blog/microservices-jhipster/dashboard-jvm.png" alt="JVM Dashboard" width="400"></td>
+<td><img src="/img/blog/microservices-jhipster/dashboard-metrics.png" alt="Metrics Dashboard" width="400"></td>
 </tr>
 <tr>
-<td>{% img blog/microservices-jhipster/dashboard-microservices.png alt:"Microservices Dashboard" width:"400" %}</td>
-<td>{% img blog/microservices-jhipster/dashboard-performance.png alt:"Performance Dashboard" width:"400" %}</td>
+<td><img src="/img/blog/microservices-jhipster/dashboard-microservices.png" alt="Microservices Dashboard" width="400"></td>
+<td><img src="/img/blog/microservices-jhipster/dashboard-performance.png" alt="Performance Dashboard" width="400"></td>
 </tr>
 </table>
 
@@ -811,7 +811,7 @@ and [Minikube](https://github.com/kubernetes/minikube/releases)
     * Base Docker repository name (e.g. `mraible`): `<your-docker-hub-username>`
     * Command to push Docker image to repository: `docker push`
     
-    {% img blog/microservices-jhipster/generate-kubernetes.png alt:"Generating Kubernetes" width:"800" %}
+    <img src="/img/blog/microservices-jhipster/generate-kubernetes.png" alt="Generating Kubernetes" width="800">
   
 6. Run the following commands to tag your Docker images. The Kubernetes sub-generator says to run `docker push` as well, 
 but you don't need that for a Minikube deployment.
@@ -831,7 +831,7 @@ but you don't need that for a Minikube deployment.
     
     The deployment process can take several minutes to complete. Run `minikube dashboard` to see the deployed containers.
     
-    {% img blog/microservices-jhipster/minikube-dashboard.png alt:"Minikube Dashboard" width:"800" %}
+    <img src="/img/blog/microservices-jhipster/minikube-dashboard.png" alt="Minikube Dashboard" width="800">
     
     You can also run `kubectl get po -o wide --watch` to see the status of each pod.
 

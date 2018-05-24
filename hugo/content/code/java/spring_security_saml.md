@@ -93,7 +93,7 @@ How to install the Spring Security SAML sample Okta application on Mac OS X:
 
 	This task compiles, tests, and assembles the code into a `.war` file.
 
-	A successful build should look something like this: {% img spring-security-saml-build.png alt:"successful build" %}
+	A successful build should look something like this: <img src="/img/spring-security-saml-build.png" alt="successful build">
 
 	- Your compiled war archive file, `spring-security-SAML2-sample.war`, can be found in directory `build/libs/`
 
@@ -120,7 +120,7 @@ How to install the Spring Security SAML sample Okta application on Mac OS X:
 	- Load the Spring SAML application by opening this Link: `http://localhost:8080/spring-security-saml2-sample/saml/discovery?entityID=http%3A%2F%2Flocalhost%3A8080%2Fspring-security-saml2-sample%2Fsaml%2Fmetadata&returnIDParam=idp`
 	- **Note:** Links on app will not be functional as of yet because we have not yet configured any IDPs. Full app functionality  will be completed after the "Configuring Spring Security SAML to work with Okta" section.
 
-	Here's what it should look like: {% img spring-security-saml-intro.png alt:"App Running" %}
+	Here's what it should look like: <img src="/img/spring-security-saml-intro.png" alt="App Running">
 
 ## Configuring Okta to work with Spring Security SAML
 
@@ -141,17 +141,17 @@ Here is how to configure Okta:
 	Developer Edition organization here:
 	<https://developer.okta.com/signup/>
 
-2.  Click on the blue "Admin" button {% img okta-admin-ui-button-admin.png alt:Admin %}
+2.  Click on the blue "Admin" button <img src="/img/okta-admin-ui-button-admin.png" alt=Admin>
 
-3.  Click on the "Add Applications" shortcut {% img okta-admin-ui-add-applications.png alt:"Add Applications" %}
+3.  Click on the "Add Applications" shortcut <img src="/img/okta-admin-ui-add-applications.png" alt="Add Applications">
 
-4.  Click on the green "Create New App" button {% img okta-admin-ui-button-create-new-app.png alt:"Create New App" %}
+4.  Click on the green "Create New App" button <img src="/img/okta-admin-ui-button-create-new-app.png" alt="Create New App">
 
 5.  In the dialog that opens, select the "SAML 2.0" option, then click
-	the green "Create" button {% img okta-admin-ui-create-new-application-integration.png alt:"Create a New Application Integration" %}
+	the green "Create" button <img src="/img/okta-admin-ui-create-new-application-integration.png" alt="Create a New Application Integration">
 
 6.  In Step 1 "General Settings", enter "Spring Security SAML" in the
-	"App name" field, then click the green "Next" button. {% img spring-security-saml-okta-general-settings.png alt:"General Settings" %}
+	"App name" field, then click the green "Next" button. <img src="/img/spring-security-saml-okta-general-settings.png" alt="General Settings">
 
 7.  In Step 2 "Configure SAML",
 	Paste the URL below into the "Single sign on URL" field:
@@ -169,11 +169,11 @@ Here is how to configure Okta:
 
 	Attributes of the user to be sent in each SAML assertion can be added under "Attribute Statements" during this step if desired. Theses attribute values can be derived and used from the SP side.
 
-	Then click the green "Next" button {% img spring-security-saml-settings.png alt:"SAML Settings" %}
+	Then click the green "Next" button <img src="/img/spring-security-saml-settings.png" alt="SAML Settings">
 
 8.  In Step 3 "Feedback", click the checkbox next to the text "This is
 	an internal application that we created", then click the green
-	"Finish" button. {% img okta-admin-ui-new-application-step-3-feedback.png alt:"App type" %}
+	"Finish" button. <img src="/img/okta-admin-ui-new-application-step-3-feedback.png" alt="App type">
 
 9.  You will now see the "Sign On" section of your newly created "Spring
 	Security SAML" application.
@@ -181,20 +181,20 @@ Here is how to configure Okta:
 10. Keep this page open it a separate tab or browser window. You will
 	need to return to this page later in this guide and copy the
 	"Identity Provider metadata" link. (To copy the that link, right
-	click on the "Identity Provider metadata" link and select "Copy") {% img okta-admin-ui-identity-provider-metadata-link.png alt:"Sign on methods" %}
+	click on the "Identity Provider metadata" link and select "Copy") <img src="/img/okta-admin-ui-identity-provider-metadata-link.png" alt="Sign on methods">
 
 11. Right-click on the "People" section of the "Spring Security SAML"
 	application and select "Open Link In New Tab" (so that you can come
 	back to the "Sign On" section later).
 
-	In the new tab that opens, click on the "Assign Application" button {% img spring-security-saml-okta-assign-people-to-application.png alt:"Assign Application" %}
+	In the new tab that opens, click on the "Assign Application" button <img src="/img/spring-security-saml-okta-assign-people-to-application.png" alt="Assign Application">
 
 12. A dialog titled "Assign Spring Security SAML to up to 500 people"
 	will open. Type your username into the search box, select the
-	checkbox next to your username, then click the green "Next" button {% img okta-admin-ui-confirm-assignments.png alt:"People search box" %}
+	checkbox next to your username, then click the green "Next" button <img src="/img/okta-admin-ui-confirm-assignments.png" alt="People search box">
 
 13. You will be prompted to "Enter user-specific attributes". Just click
-	the green "Confirm Assignments" button to keep the defaults. {% img spring-security-saml-okta-confirm-assignments.png alt:"Enter user attributes" %}
+	the green "Confirm Assignments" button to keep the defaults. <img src="/img/spring-security-saml-okta-confirm-assignments.png" alt="Enter user attributes">
 
 14. You are now ready to proceed to the next section. Make sure that the
 	link you copied in step \#9 is still in your clipboard, as you will
@@ -264,7 +264,7 @@ to test it out.
 There are two ways to test a SAML application: Starting from the Spring
 application ("SP initiated") and starting from Okta ("IdP initiated").
 You will be testing both methods. In both cases, you will know of the
-test worked when you see a screen that looks like the one below: {% img spring-security-saml-assert.png alt:"Authenticated user" %}
+test worked when you see a screen that looks like the one below: <img src="/img/spring-security-saml-assert.png" alt="Authenticated user">
 
 
 1.  Login from the Spring Security SAML sample application (This is
@@ -276,7 +276,7 @@ test worked when you see a screen that looks like the one below: {% img spring-s
 	-   Select the Okta IdP from the list
 		It will be a URL that starts with "http://www.okta.com/"
 
-	-   Click the "Start single sign-on" button. {% img spring-security-saml-selection.png alt:"Start single sign-on" %}
+	-   Click the "Start single sign-on" button. <img src="/img/spring-security-saml-selection.png" alt="Start single sign-on">
 
 2.  Login from Okta (This is known as an "IdP initiated" login)
 

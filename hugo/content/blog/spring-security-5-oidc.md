@@ -41,7 +41,7 @@ Spring Security makes authentication with OAuth 2.0 pretty darn easy. It also pr
 > 4. Validate JWT ID token locally based on built-in dates and signature
 > 5. Get additional user attributes as needed with access token
 >
-> {% img blog/oauth/oidc-flow.png alt:"OIDC Flow" width:"800" %}{: .center-image }
+> <img src="/img/blog/oauth/oidc-flow.png" alt="OIDC Flow" width="800" class="center-image">
 
 ## Create a Spring Boot App
 

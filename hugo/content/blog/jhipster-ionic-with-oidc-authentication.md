@@ -226,7 +226,7 @@ The iOS emulator runs on port 8080, so you will need to change your backend to r
 
 Restart the blog app, then run the Ionic app with `ionic cordova emulate ios`. You should be able to log in to your Ionic app, tap **Entities** and view the list of blogs.
 
-| {% img blog/jhipster-ionic/emulator-welcome.png alt:"Emulator Welcome" width:"300" %} | {% img blog/jhipster-ionic/emulator-entities.png alt:"Emulator Entities" width:"300" %} | {% img blog/jhipster-ionic/emulator-no-blogs.png alt:"Emulator No Blogs" width:"300" %} |
+| <img src="/img/blog/jhipster-ionic/emulator-welcome.png" alt="Emulator Welcome" width="300"> | <img src="/img/blog/jhipster-ionic/emulator-entities.png" alt="Emulator Entities" width="300"> | <img src="/img/blog/jhipster-ionic/emulator-no-blogs.png" alt="Emulator No Blogs" width="300"> |
 
 Add a blog in the JHipster app at http://localhost:8888.
 

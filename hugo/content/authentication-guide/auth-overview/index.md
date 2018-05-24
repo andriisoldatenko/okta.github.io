@@ -99,14 +99,14 @@ Any OAuth flow can give you an access token, but not all support ID tokens.
 | **Authorization Code**           | &#9989;        | &#9989;    |
 | **Authorization Code with PKCE** | &#9989;        | &#9989;    |
 | **Implicit**                     | &#9989;        | &#9989;    |
-| **Resource Owner Password**      | &#9989;        | &#10060;   |
+| **Resource Owner Password**      | &#9989;        | &#9989;    |
 | **Client Credentials**           | &#9989;        | &#10060;   |
 
 ### What kind of client are you building?
 
 Depending on what kind of client you are building, you will want to use a different OAuth 2.0 flow. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
 
-{% img oauth_grant_flowchart.png alt:"OAuth Flow Diagram" width:"800px" %}
+<img src="/img/oauth_grant_flowchart.png" alt="OAuth Flow Diagram" width="800px">
 
 ##### Is your client public?
 
@@ -130,7 +130,7 @@ If you own both the client application and the resource that it is accessing, th
 
 The Authorization Code flow is best used by server-side apps where the source code is not publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which will have to be stored in your client. The server-side app requires an end-user, however, because it relies on interaction with the end-user's web browser which will redirect the user and then receive the authorization code.
 
-{% img oauth_auth_code_flow.png alt:"Auth Code Flow" width:"800px" %}
+<img src="/img/oauth_auth_code_flow.png" alt="Auth Code Flow" width="800px">
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -168,7 +168,7 @@ When the authorization code is sent in the access token request, the code verifi
 
 A rogue app could only intercept the authorization code, but it would not have access to the code challenge or verifier, since they are both sent over HTTPS.
 
-{% img oauth_auth_code_flow_pkce.png alt:"Auth Code Flow with PKCE" width:"800px" %}
+<img src="/img/oauth_auth_code_flow_pkce.png" alt="Auth Code Flow with PKCE" width="800px">
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -202,7 +202,7 @@ The Implicit Flow is intended for applications where the confidentiality of the 
 
 > NOTE: Because it is intended for less-trusted clients, the Implicit Flow does not support refresh tokens.
 
-{% img oauth_implicit_flow.png alt:"Implicit Flow" width:"800px" %}
+<img src="/img/oauth_implicit_flow.png" alt="Implicit Flow" width="800px">
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -227,7 +227,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 The Resource Owner Password Flow is intended for use cases where you control both the client application and the resource that it is interacting with. It requires that the client can store a client secret and can be trusted with the resource owner's credentials, and so is most commonly found in clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
 
-{% img oauth_password_flow.png alt:"Resource Owner Password Flow" width:"800px" %}
+<img src="/img/oauth_password_flow.png" alt="Resource Owner Password Flow" width="800px">
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -254,7 +254,7 @@ The Client Credentials flow is intended for server-side (AKA "confidential") cli
 
 > NOTE: The Client Credentials Flow does not support refresh tokens.
 
-{% img oauth_client_creds_flow.png alt:"Resource Owner Password Flow" width:"800px" %}
+<img src="/img/oauth_client_creds_flow.png" alt="Resource Owner Password Flow" width="800px">
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

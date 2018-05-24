@@ -5,7 +5,9 @@ exampleDescription: ASP.NET 4.x MVC authorization code example
 
 ## Okta ASP.NET 4.x MVC Quickstart
 
-If you want a full, working example, head over to the [ASP.NET MVC example](https://github.com/oktadeveloper/okta-aspnet-mvc-example) repository and follow the instructions in that readme.
+Now that your users can sign in, let's add authentication to your server.
+
+> If you would prefer to download a complete sample application instead, please visit [ASP.NET MVC Example](https://github.com/oktadeveloper/okta-aspnet-mvc-example) and follow those instructions.
 
 ### Create a new project
 
@@ -61,7 +63,7 @@ public class Startup
 
             Notifications = new OpenIdConnectAuthenticationNotifications
             {
-                AuthorizationCodeReceived = async n => 
+                AuthorizationCodeReceived = async n =>
                 {
                     // Exchange code for access and ID tokens
                     var tokenClient = new TokenClient(authority + "/v1/token", clientId, clientSecret);

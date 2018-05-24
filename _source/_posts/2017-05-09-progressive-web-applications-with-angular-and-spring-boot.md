@@ -89,7 +89,7 @@ Installing [Angular Material](https://material.angular.io/) is not a necessary s
 
 ```bash
 npm install
-npm install --save @angular/material @angular/cdk
+npm install --save-exact @angular/material@5.2.0 @angular/cdk@5.2.0
 ```
 
 Add imports for the modules you'll be using in `app.module.ts`:

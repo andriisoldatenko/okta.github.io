@@ -5,7 +5,7 @@ exampleDescription: Spring Implicit Example
 
 ## Okta Java/Spring Quickstart
 
-In this section we'll show you how to add the Okta Spring Boot library to your Spring app.
+Now that your users can sign in, let's add authentication to your server. We'll show you how to add the Okta Spring Boot library to your Spring app.
 
 > If you would prefer to download a complete sample application instead, please visit [Spring Sample Applications for Okta][] and follow those instructions.
 

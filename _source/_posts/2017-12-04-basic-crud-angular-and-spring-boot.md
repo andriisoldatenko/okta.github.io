@@ -209,7 +209,7 @@ After the client is created, navigate into its directory and install Angular Mat
 
 ```bash
 cd client
-npm install --save @angular/material @angular/cdk
+npm install --save-exact @angular/material@5.2.4 @angular/cdk@5.2.4
 ```
 
 You'll use Angular Material's components to make the UI look better, especially on mobile phones. If you'd like to learn more about Angular Material, see <https://material.angular.io>. It has extensive documentation on its various components and how to use them.

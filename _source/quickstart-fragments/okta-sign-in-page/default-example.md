@@ -5,7 +5,7 @@ libraryName: Okta Sign-In Page
 
 ## Okta Sign-In Page Quickstart
 
-The Okta Sign-In Page provides the easiest, most secure way to allow users to authenticate into your application.  The Sign-In Page is hosted by Okta on the domain of your Okta Org, as such it is the fastest way to get authentication working in your application.  If you need more customization you can host the Sign-In experience within your own application by using the Okta Sign-In Widget (see tab above).
+The Okta Sign-In Page provides the easiest, most secure way to allow users to authenticate into your application.  The Sign-In Page is hosted by Okta for your Okta org, and is the fastest way to get authentication working in your application. If you need more customization you can host the Sign-In experience within your own application by using the Okta Sign-In Widget (see tab above).
 
 <center>{% img okta-sign-in-page.png alt:"Okta Sign-In Page" width:"500" %}</center>
 
@@ -29,7 +29,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | Login redirect URIs | http://localhost:{port}/authorization-code/callback |
 | Grant Types Allowed | Authorization Code                                  |
 
-After you have created the application there are two more values you will need to gather:
+After you have created the application there are three more values you will need to gather:
 
 | Setting       | Where to Find                                                                  |
 | ------------- | ------------------------------------------------------------------------------ |

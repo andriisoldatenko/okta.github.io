@@ -19,14 +19,14 @@ At the end of the React instructions you can choose your server type to learn mo
 ## Prerequisites
 
 * If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
-* If you don't have a React app, or are new to React, please continue with the [React Quickstart](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) guide. It will walk you through the creation of a React app, creating routes, and other application development essentials.
+* If you don't have a React app, or are new to React, please start with [React's documentation](https://facebook.github.io/react/docs/installation.html#creating-a-new-application). It will walk you through the creation of a React app, creating routes, and other application development essentials.
 
 ## Add an OpenID Connect Client in Okta
 
-In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta Org already has a default authorization server, so you just need to create an OIDC client that will use it.
+In Okta, applications are OpenID Connect clients that can use Okta Authorization servers to authenticate users.  Your Okta org already has a default authorization server, so you just need to create an OIDC client that will use it.
 
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from the [React Quickstart](https://facebook.github.io/react/docs/installation.html#creating-a-new-application), your `port` will be `3000`:
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from [React's documentation](https://facebook.github.io/react/docs/installation.html#creating-a-new-application), your `port` will be `3000`:
 
 | Setting             | Value                                        |
 | ------------------- | -------------------------------------------- |
@@ -46,7 +46,7 @@ These values will be used in your React application to setup the OpenID Connect 
 
 ## Install the Okta React SDK
 
-You will need to use the [Okta React SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react) library to sign in the user by redirecting to the authorization endpoint on your Okta Org. You can install it via npm:
+You will need to use the [Okta React SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react) library to sign in the user by redirecting to the authorization endpoint on your Okta org. You can install it via npm:
 
 ```bash
 npm install @okta/okta-react --save
@@ -54,7 +54,7 @@ npm install @okta/okta-react --save
 
 ### Configuration
 
-You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta Org URL, which you can see on the home page of the Okta Developer console. Your Okta Org URL + `oauth2/default` will be the `issuer` param.
+You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console. Your Okta org URL + `oauth2/default` will be the `issuer` param.
 
 In your application's `App.js` file, import the following objects and pass in your configuration:
 
